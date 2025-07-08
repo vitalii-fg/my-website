@@ -109,22 +109,24 @@ footer {
   margin-top: 40px;
   font-size: 0.9em;
 }
+.whatsapp-link {
+  text-decoration: none;
+}
+
 .whatsapp-button {
   display: inline-block;
-  background-color: #25D366;  /* зелёный фон WhatsApp */
-  color: white;               /* белый текст */
-  padding: 10px 18px;         /* внутренние отступы */
-  border-radius: 6px;         /* скруглённые углы */
-  text-decoration: none;      /* убираем подчёркивание */
-  font-weight: bold;          /* жирный шрифт */
-  margin-top: 10px;           /* отступ сверху */
-  transition: background-color 0.3s ease; /* плавная анимация при наведении */
+  background-color: #25D366; /* зелёный фон */
+  color: white;              /* белый текст */
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .whatsapp-button i {
-  margin-right: 8px;          /* отступ справа от иконки */
+  margin-right: 6px;
 }
 
 .whatsapp-button:hover {
-  background-color: #1ebd5a;  /* немного темнее при наведении */
+  background-color: #1ebd5a;
 }
