@@ -130,3 +130,7 @@ footer {
 .whatsapp-button:hover {
   background-color: #1ebd5a;
 }
+.logo {
+  width: 200px;
+  margin-bottom: 1px;
+}
