@@ -1,0 +1,37 @@
+function doGet() {
+  // ✅ Place ID твоей компании
+  var placeId = "placeId";
+
+  // ✅ API-ключ (если используешь напрямую — не публикуй его публично!)
+  var apiKey = "apiKey";
+
+  // ✅ Исправлено: URL должен быть в кавычках
+  var apiUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`;
+
+  var response = UrlFetchApp.fetch(apiUrl);
+  var json = JSON.parse(response.getContentText());
+
+  // ✅ Формируем HTML для вывода отзывов
+  var htmlOutput = '<html><body>';
+  
+  if (json.result && json.result.reviews) {
+    var reviews = json.result.reviews;
+
+    for (var i = 0; i < reviews.length; i++) {
+      var review = reviews[i];
+      htmlOutput += `
+        <div style="margin-bottom: 20px; padding: 10px; border-bottom: 1px solid #ccc;">
+          <strong>${review.author_name}</strong> (${review.rating} ★)<br>
+          <em>"${review.text}"</em>
+        </div>
+      `;
+    }
+  } else {
+    htmlOutput += '<p>Отзывы не найдены</p>';
+  }
+
+  htmlOutput += '</body></html>';
+
+  // ✅ Возвращаем HTML-ответ
+  return HtmlService.createHtmlOutput(htmlOutput);
+}
